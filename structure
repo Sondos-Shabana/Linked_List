@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+
+
+int lengtharray;
+int Numberinital;
+
+ struct student_date_birth
+        {
+            int day, month,year;
+        };
+
+  struct student_info {
+        char name[100];
+        int score,id;
+        struct student_date_birth stb;
+
+    };
+
+
+
+ typedef  struct node{
+      struct student_info st;
+        struct node*next;
+    }node;

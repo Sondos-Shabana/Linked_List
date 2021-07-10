@@ -178,3 +178,254 @@ int Numberinital;
     }
           
         }
+		
+		
+		node * makelist(int Numberinital)
+    {
+       node*head=NULL;
+        node * temp=NULL;
+        head=(node*)malloc(sizeof(node));
+
+        printf("Enter Student Name: \n");
+        fflush(stdin);
+        scanf("%*c");
+        fgets((head->st.name),sizeof((head->st.name)),stdin);
+
+
+        printf("Enter Student id: \n");
+        scanf("%d",&(head->st.id));
+
+        printf("Enter Student score: \n");
+        scanf("%d",&(head->st.score));
+
+        printf("Enter Student_date_birth(day): \n");
+        scanf("%d",&(head->st.stb.day));
+
+        printf("Enter Student_date_birth(month): \n");
+        scanf("%d",&(head->st.stb.month));
+
+        printf("Enter Student_date_birth(year): \n");
+        scanf("%d",&(head->st.stb.year));
+        node*p=head;
+     for (int i=1;i<Numberinital;i++)
+        {
+            temp=(node*)malloc(sizeof(node));
+               printf("Enter Student Name: \n");
+        fflush(stdin);
+        scanf("%*c");
+        fgets((temp->st.name),sizeof((temp->st.name)),stdin);
+        printf("Enter Student id: \n");
+        scanf("%d",&(temp->st.id));
+
+        printf("Enter Student score: \n");
+        scanf("%d",&(temp->st.score));
+
+        printf("Enter Student_date_birth(day): \n");
+        scanf("%d",&(temp->st.stb.day));
+
+        printf("Enter Student_date_birth(month): \n");
+        scanf("%d",&(temp->st.stb.month));
+
+        printf("Enter Student_date_birth(year): \n");
+        scanf("%d",&(temp->st.stb.year));
+      p->next=temp;
+      p=p->next;
+
+        }
+
+        return head;
+    }
+     void displaylist( node*head){
+         node*p=head;
+         while(p!=NULL)
+         {
+        printf("Student Name is : ");
+        printf("%s",p->st.name);
+        printf("Student id is :");
+        printf("%d",p->st.id);
+        printf("\n");
+        printf("Student score is :");
+        printf("%d",p->st.score);
+        printf("\n");
+        printf("Student_date_birth is:");
+        printf( "%d/%d/%d",p->st.stb.day,p->st.stb.month,p->st.stb.year);
+        printf("\n\n");
+        p=p->next;
+
+         }
+     }
+    node* insert_linked_list(struct node*head,int poslist)
+     {
+if(poslist==1)
+  {  /* 1. allocate node */
+    struct node* temp = (struct node*) malloc(sizeof(struct node));
+
+   temp=(node*)malloc(sizeof(node));
+               printf("Enter Student Name: \n");
+        fflush(stdin);
+        scanf("%*c");
+        fgets((temp->st.name),sizeof((temp->st.name)),stdin);
+
+        printf("Enter Student id: \n");
+        scanf("%d",&(temp->st.id));
+
+
+printf("Enter Student score: \n");
+        scanf("%d",&(temp->st.score));
+
+        printf("Enter Student_date_birth(day): \n");
+        scanf("%d",&(temp->st.stb.day));
+
+        printf("Enter Student_date_birth(month): \n");
+        scanf("%d",&(temp->st.stb.month));
+
+        printf("Enter Student_date_birth(year): \n");
+        scanf("%d",&(temp->st.stb.year));
+
+    /* 3. Make next of new node as head */
+    temp->next = head;
+
+    /* 4. move the head to point to the new node */
+    head= temp;
+    return head;
+}
+
+
+/* Given a reference (pointer to pointer) to the head
+   of a list and an int, appends a new node at the end  */
+if(poslist==3)
+{
+    /* 1. allocate node */
+    struct node* temp2 = (struct node*) malloc(sizeof(struct node));
+
+    struct node *last = head; /* used in step 5*/
+    temp2=(node*)malloc(sizeof(node));
+               printf("Enter Student Name: \n");
+        fflush(stdin);
+        scanf("%*c");
+        fgets((temp2->st.name),sizeof((temp2->st.name)),stdin);
+        printf("Enter Student id: \n");
+        scanf("%d",&(temp2->st.id));
+
+
+printf("Enter Student score: \n");
+        scanf("%d",&(temp2->st.score));
+
+        printf("Enter Student_date_birth(day): \n");
+        scanf("%d",&(temp2->st.stb.day));
+
+        printf("Enter Student_date_birth(month): \n");
+        scanf("%d",&(temp2->st.stb.month));
+        printf("Enter Student_date_birth(year): \n");
+        scanf("%d",&(temp2->st.stb.year));
+
+    /* 3. This new node is going to be the last node, so make next
+          of it as NULL*/
+    temp2->next = NULL;
+
+    /* 4. If the Linked List is empty, then make the new node as head */
+    if (head == NULL)
+    {
+       head = temp2;
+       return head;
+    }
+
+    /* 5. Else traverse till the last node */
+    while (last->next != NULL)
+        last = last->next;
+
+    /* 6. Change the next of last node */
+    last->next = temp2;
+    return head;
+}
+    if(poslist==2)
+{
+    node *prev_node=NULL;
+    struct node* temp3 =(struct node*) malloc(sizeof(struct node));
+printf("Position you want to insert at:\n");
+        int Positionlinked;
+        scanf("%d",&Positionlinked);
+       printf("Enter Student Name: \n");
+        fflush(stdin);
+        scanf("%*c");
+        fgets((temp3->st.name),sizeof((temp3->st.name)),stdin);
+
+        printf("Enter Student id: \n");
+        scanf("%d",&(temp3->st.id));
+
+        printf("Enter Student score: \n");
+        scanf("%d",&(temp3->st.score));
+
+        printf("Enter Student_date_birth(day): \n");
+        scanf("%d",&(temp3->st.stb.day));
+
+        printf("Enter Student_date_birth(month): \n");
+        scanf("%d",&(temp3->st.stb.month));
+
+        printf("Enter Student_date_birth(year): \n");
+        scanf("%d",&(temp3->st.stb.year));
+        prev_node=head;
+        
+for(int i=1;i<Positionlinked-1;i++)
+{
+    prev_node=prev_node->next;
+
+}
+       node*aft=prev_node->next;
+      /* 4. Make next of new node as next of prev_node */
+    temp3->next = aft;
+
+    /* 5. move the next of prev_node as new_node */
+    prev_node->next = temp3;
+return head;
+}
+}
+
+
+
+
+int main()
+{ int n1,n4,type;
+   printf("Which Data Structure do you want to use ? \n1-Dymaic Array. \n2-Linked List.\n");
+   scanf("%d",&type);
+   if(type==1)
+{struct student_info *pstudent;
+   printf("Number of intial students:\n");
+   scanf("%d",&lengtharray);
+pstudent=(struct student_info*) malloc(lengtharray*sizeof( struct student_info)) ;
+
+  
+   getdata_dynamic_array(lengtharray,pstudent);
+  label2:
+   
+     
+   printf("which operation do you want to use ? \n 1-insert at beginning \n 3-insert at end \n 2-insert certain location \n ");
+   scanf("%d",&n1);
+
+insert_dynamic_array(pstudent,n1);
+   printf("Do you want another case of insertion: if yes:1 if No:2\n");
+   scanf("%d",&n4);
+   
+   if(n4==1)
+   goto label2;
+    display(lengtharray,pstudent);
+}
+   
+   if(type==2)
+ {  int n3;
+ 
+   printf("Enter number of student:\n");
+   scanf("%d",&Numberinital);
+    node* head=makelist(Numberinital);
+    label1:
+    printf("which operation do you want to use ? \n 1-insert at beginning \n 3-insert at end \n 2-insert certain location \n");
+   scanf("%d",&n3);
+   head=insert_linked_list(head,n3);
+   
+   printf("Do you want another case of insertion: if yes:1 if No:2\n");
+   scanf("%d",&n4);
+   if(n4==1)
+   goto label1;
+  
+   displaylist(head);}
+return 0;}

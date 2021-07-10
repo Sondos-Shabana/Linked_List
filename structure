@@ -25,3 +25,156 @@ int Numberinital;
       struct student_info st;
         struct node*next;
     }node;
+ void getdata_dynamic_array(int Number1,struct student_info*student1)
+    { /*clock_t start,end;
+      double cpu_time_used;
+      start=clock();*/
+       for (int k=0;k<Number1;k++)
+        {
+
+        printf("Enter Student Name:\n");
+        fflush(stdin);
+        scanf("%*c");
+        fgets((student1+k)->name,sizeof((student1+k)->name),stdin);
+
+        printf("Enter Student id: \n");
+        scanf("%d",&(student1+k)->id);
+
+        printf("Enter Student score: \n");
+        scanf("%d",&(student1+k)->score);
+
+        printf("Enter Student_date_birth(day): \n");
+        scanf("%d",&(student1+k)->stb.day);
+
+        printf("Enter Student_date_birth(month): \n");
+        scanf("%d",&(student1+k)->stb.month);
+
+        printf("Enter Student_date_birth(year): \n");
+        scanf("%d",&(student1+k)->stb.year);
+          
+        }
+       /* end=clock();
+        cpu_time_used=((double)(end-start))/ CLOCKS_PER_SEC ;
+        printf(" time taken by function is: %lf\n",cpu_time_used);*/
+      
+        }
+    void display(int size,struct student_info*student)
+    {
+         for (int k=0;k<size;k++)
+        {
+        printf("\n\n");
+        printf("Student Name is: ");
+        printf("%s",(student+k)->name);
+
+        printf("Student id is:");
+        printf("%d",(student+k)->id);
+        printf("\n");
+        printf("Student score is:");
+        printf("%d",(student+k)->score);
+        printf("\n");
+        printf("Enter Student_date_birth is:");
+        printf( "%d/ %d/ %d",(student+k)->stb.day ,(student+k)->stb.month,(student+k)->stb.year);
+        printf("\n\n");
+
+        }
+
+    }  
+         void insert_dynamic_array (struct student_info*student ,int m)
+        {
+            if(m==2) //insert in middle
+            { 
+           
+                printf("Enter Position you want to insert at :\n");
+            int Position;
+            scanf("%d",&Position);
+           
+            student=realloc(student,(lengtharray++)*sizeof( struct student_info)) ;
+           int k;
+            for(k=lengtharray-1;k>=Position;k--)
+            {
+              *(student+(k))=*(student+(k-1));
+
+
+            }
+        printf("Enter Student Name: \n");
+        fflush(stdin);
+        scanf("%*c");
+        fgets((student+Position-1)->name,sizeof((student+Position-1)->name),stdin);
+
+
+        printf("Enter Student id: \n");
+        scanf("%d",&(student+(Position-1))->id);
+
+        printf("Enter Student score: \n");
+        scanf("%d",&(student+(Position-1))->score);
+
+        printf("Enter Student_date_birth(day): \n");
+        scanf("%d",&(student+(Position-1))->stb.day);
+
+        printf("Enter Student_date_birth(month): \n");
+        scanf("%d",&(student+(Position-1))->stb.month);
+
+        printf("Enter Student_date_birth(year): \n");
+        scanf("%d",&(student+(Position-1))->stb.year);
+        
+        }
+
+        
+        if(m==1)//insert in begin
+        
+            {lengtharray++;
+                student=realloc(student,(lengtharray)*sizeof( struct student_info)) ;
+            for(int k=lengtharray-1;k>0;k--)
+            {
+              *(student+k)=*(student+k-1);
+
+
+}
+        printf("Enter Student Name: \n");
+        fflush(stdin);
+        scanf("%*c");
+        fgets((student)->name,sizeof((student)->name),stdin);
+        printf("Enter Student id: \n");
+        scanf("%d",&(student->id));
+
+        printf("Enter Student score: \n");
+        scanf("%d",&(student->score));
+
+        printf("Enter Student_date_birth(day): \n");
+        scanf("%d",&(student->stb.day));
+
+        printf("Enter Student_date_birth(month): \n");
+        scanf("%d",&(student->stb.month));
+
+        printf("Enter Student_date_birth(year): \n");
+        scanf("%d",&(student->stb.year));
+        }
+        
+
+    if(m==3)//insert in end 
+
+       { 
+           student=realloc(student,(lengtharray++)*sizeof( struct student_info)) ;
+        printf("Enter Student Name: \n");
+        fflush(stdin);
+        scanf("%*c");
+        fgets((student+(lengtharray-1))->name,sizeof((student+(lengtharray-1))->name),stdin);
+
+
+        printf("Enter Student id: \n");
+        scanf("%d",&(student+(lengtharray-1))->id);
+
+        printf("Enter Student score: \n");
+        scanf("%d",&(student+(lengtharray-1))->score);
+
+        printf("Enter Student_date_birth(day): \n");
+        scanf("%d",&(student+(lengtharray-1))->stb.day);
+        printf("Enter Student_date_birth(month): \n");
+        scanf("%d",&(student+(lengtharray-1))->stb.month);
+
+        printf("Enter Student_date_birth(year): \n");
+        scanf("%d",&(student+(lengtharray-1))->stb.year);
+       
+    }
+          
+        }
